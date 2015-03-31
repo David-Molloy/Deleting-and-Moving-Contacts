@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Bhu-Nd-UQw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Contacts Table View Controller-->
@@ -54,24 +55,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jm3-3W-Q5u">
-                                <rect key="frame" x="16" y="123" width="568" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kgo-oK-cMk">
+                                <rect key="frame" x="16" y="79" width="128" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OB-Ff-eRi">
+                                <rect key="frame" x="16" y="264" width="568" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbT-Sp-seC">
-                                <rect key="frame" x="16" y="82" width="568" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cA-5e-qdY">
+                                <rect key="frame" x="0.0" y="344" width="600" height="256"/>
+                            </scrollView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="G9l-BQ-Eb8">
+                                <rect key="frame" x="0.0" y="214" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="h4C-dk-028" id="D50-7h-5LJ"/>
+                                </connections>
+                            </searchBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7GA-4h-Xmr">
+                                <rect key="frame" x="16" y="132" width="128" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="Ppq-nQ-7D6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="3cA-5e-qdY" firstAttribute="top" secondItem="6OB-Ff-eRi" secondAttribute="bottom" constant="8" symbolic="YES" id="CO2-4Z-9OX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3cA-5e-qdY" secondAttribute="trailing" constant="-16" id="Cv8-ZE-Pou"/>
+                            <constraint firstItem="6OB-Ff-eRi" firstAttribute="top" secondItem="G9l-BQ-Eb8" secondAttribute="bottom" constant="6" id="FdK-Wm-WhV"/>
+                            <constraint firstItem="6OB-Ff-eRi" firstAttribute="leading" secondItem="BMO-F3-jvA" secondAttribute="leadingMargin" id="JPd-pA-tM4"/>
+                            <constraint firstItem="G9l-BQ-Eb8" firstAttribute="top" secondItem="7GA-4h-Xmr" secondAttribute="bottom" constant="52" id="POp-oO-CpY"/>
+                            <constraint firstItem="3cA-5e-qdY" firstAttribute="leading" secondItem="BMO-F3-jvA" secondAttribute="leadingMargin" constant="-16" id="Vb5-r6-EYp"/>
+                            <constraint firstItem="wTd-hG-k75" firstAttribute="top" secondItem="3cA-5e-qdY" secondAttribute="bottom" id="Ymb-pM-Mk3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="G9l-BQ-Eb8" secondAttribute="trailing" constant="-16" id="bya-77-YW3"/>
+                            <constraint firstItem="7GA-4h-Xmr" firstAttribute="top" secondItem="kgo-oK-cMk" secondAttribute="bottom" constant="23" id="fDk-h2-KyS"/>
+                            <constraint firstItem="G9l-BQ-Eb8" firstAttribute="leading" secondItem="BMO-F3-jvA" secondAttribute="leadingMargin" constant="-16" id="fj3-fj-eTH"/>
+                            <constraint firstItem="7GA-4h-Xmr" firstAttribute="trailing" secondItem="kgo-oK-cMk" secondAttribute="trailing" id="hVh-YY-xl3"/>
+                            <constraint firstItem="6OB-Ff-eRi" firstAttribute="trailing" secondItem="BMO-F3-jvA" secondAttribute="trailingMargin" id="kNn-89-tO7"/>
+                            <constraint firstItem="7GA-4h-Xmr" firstAttribute="leading" secondItem="6OB-Ff-eRi" secondAttribute="leading" id="lhF-tS-5Ak"/>
+                            <constraint firstItem="7GA-4h-Xmr" firstAttribute="leading" secondItem="kgo-oK-cMk" secondAttribute="leading" id="miL-WM-DTx"/>
+                            <constraint firstAttribute="centerY" secondItem="6OB-Ff-eRi" secondAttribute="centerY" id="rV3-bW-dhK"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="nameLabel" destination="jbT-Sp-seC" id="0Ql-FN-Jk9"/>
-                        <outlet property="phoneNumberLabel" destination="jm3-3W-Q5u" id="aSr-Sx-Cwm"/>
+                        <outlet property="myNameLabel" destination="6OB-Ff-eRi" id="rx6-n2-CX9"/>
+                        <outlet property="nameField" destination="kgo-oK-cMk" id="Oio-9c-Una"/>
+                        <outlet property="phoneNumberField" destination="7GA-4h-Xmr" id="bS5-2f-upr"/>
+                        <outlet property="scrollView" destination="3cA-5e-qdY" id="qKF-A3-vUw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ela-Ni-ugT" userLabel="First Responder" sceneMemberID="firstResponder"/>
